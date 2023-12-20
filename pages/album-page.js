@@ -1,7 +1,8 @@
-import { Cloudinary } from '@cloudinary/url-gen';
+import { Cloudinary, CloudinaryImage } from '@cloudinary/url-gen';
 import { thumbnail } from '@cloudinary/url-gen/actions/resize';
 import { autoGravity } from '@cloudinary/url-gen/qualifiers/gravity';
 import { format, quality } from '@cloudinary/url-gen/actions/delivery';
+import { responsive, placeholder, HtmlImageLayer } from '@cloudinary/html';
 
 class AlbumPage extends HTMLElement {
   connectedCallback() {
@@ -52,19 +53,16 @@ class AlbumPage extends HTMLElement {
 
     this.getData('myphotoalbum-js');
   }
-  cld = new Cloudinary({
-    cloud: {
-      cloudName: import.meta.env.VITE_CLOUD_NAME,
-    },
-  });
 
   createCldImage(publicId) {
-    const myImage = this.cld
-      .image(publicId)
+    const myImage = new CloudinaryImage(publicId, {
+      cloudName: import.meta.env.VITE_CLOUD_NAME,
+    });
+    myImage
       .resize(thumbnail().width(300).height(300).gravity(autoGravity()))
       .delivery(format('auto'))
       .delivery(quality('auto'));
-    return myImage.toURL();
+    return myImage;
   }
 
   displayPhotos(photos) {
@@ -82,8 +80,11 @@ class AlbumPage extends HTMLElement {
           'shadow-lg'
         );
         img.style.maxWidth = '100%';
-        img.src = this.createCldImage(photo.public_id);
         photoContainer.appendChild(img);
+        new HtmlImageLayer(img, this.createCldImage(photo.public_id), [
+          responsive(),
+          placeholder(),
+        ]);
         photoGallery.appendChild(photoContainer);
       });
     } else {
