@@ -1,8 +1,8 @@
-import { Cloudinary, CloudinaryImage } from '@cloudinary/url-gen';
+import { CloudinaryImage } from '@cloudinary/url-gen';
 import { thumbnail } from '@cloudinary/url-gen/actions/resize';
 import { autoGravity } from '@cloudinary/url-gen/qualifiers/gravity';
 import { format, quality } from '@cloudinary/url-gen/actions/delivery';
-import { responsive, placeholder, HtmlImageLayer } from '@cloudinary/html';
+import { placeholder, HtmlImageLayer } from '@cloudinary/html';
 
 class AlbumPage extends HTMLElement {
   connectedCallback() {
@@ -71,18 +71,10 @@ class AlbumPage extends HTMLElement {
         const photoContainer = document.createElement('div');
         photoContainer.classList.add('lg:w-1/3', 'md:w-1/2', 'w-full', 'p-4');
         const img = document.createElement('img');
-        img.classList.add(
-          'w-full',
-          'h-64',
-          'object-cover',
-          'max-w-sm',
-          'rounded-lg',
-          'shadow-lg'
-        );
+        img.classList.add('rounded-lg', 'shadow-lg');
         img.style.maxWidth = '100%';
         photoContainer.appendChild(img);
         new HtmlImageLayer(img, this.createCldImage(photo.public_id), [
-          responsive(),
           placeholder(),
         ]);
         photoGallery.appendChild(photoContainer);
