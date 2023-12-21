@@ -102,7 +102,4 @@ class UploadPage extends HTMLElement {
   }
 }
 
-// customElements.define('upload-page', UploadPage);
-if (!customElements.get('upload-page')) {
-  customElements.define('upload-page', UploadPage);
-}
+customElements.define('upload-page', UploadPage);
