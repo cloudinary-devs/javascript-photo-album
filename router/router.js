@@ -13,6 +13,7 @@ class Router {
         break;
       case '/upload':
         await this.loadComponent('upload-page', '../pages/upload-page.js');
+        this.loadUploadWidgetScript();
         break;
       case '/apiupload':
         await this.loadComponent(
@@ -37,6 +38,13 @@ class Router {
       }
     }
     this.layout.loadPage(`<${tagName}></${tagName}>`);
+  }
+
+  loadUploadWidgetScript() {
+    const uploadPage = document.querySelector('upload-page');
+    if (uploadPage) {
+      uploadPage.loadUW();
+    }
   }
 
   navigate(path) {

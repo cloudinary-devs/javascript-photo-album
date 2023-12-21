@@ -90,15 +90,19 @@ class UploadPage extends HTMLElement {
 
     updateButtonState();
   }
+  loadUW() {
+    const uwScript = document.getElementById('uw');
+    if (!uwScript) {
+      const script = document.createElement('script');
+      script.setAttribute('async', '');
+      script.setAttribute('id', 'uw');
+      script.src = 'https://upload-widget.cloudinary.com/global/all.js';
+      document.body.appendChild(script);
+    }
+  }
 }
 
-const uwScript = document.getElementById('uw');
-if (!uwScript) {
-  const script = document.createElement('script');
-  script.setAttribute('async', '');
-  script.setAttribute('id', 'uw');
-  script.src = 'https://upload-widget.cloudinary.com/global/all.js';
-  document.body.appendChild(script);
+// customElements.define('upload-page', UploadPage);
+if (!customElements.get('upload-page')) {
+  customElements.define('upload-page', UploadPage);
 }
-
-customElements.define('upload-page', UploadPage);

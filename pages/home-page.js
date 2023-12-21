@@ -7,9 +7,7 @@ class HomePage extends HTMLElement {
         class="underline text-blue-500 hover:bg-blue-200 rounded-full transition duration-300"
         href="https://cloudinary.com/documentation/javascript_integration"
       >
-        Cloudinary JavaScript SDK
-      </a>
-      .
+        Cloudinary JavaScript SDK</a>.
     </p>
     <div class="p-2">
       The following pieces of functionality are exposed in this app:
@@ -19,41 +17,32 @@ class HomePage extends HTMLElement {
             class="underline text-blue-500 hover:bg-blue-200 rounded-full transition duration-300"
             href="/upload.html"
           >
-            Upload (Upload Widget)
-          </a>
-          : shows an example implementation of the
+            Upload (Upload Widget)</a>
+          :shows an example implementation of the
           <a
             class="underline text-blue-500 hover:bg-blue-200 rounded-full transition duration-300"
             href="https://cloudinary.com/documentation/upload_widget"
           >
-            Upload Widget
-          </a>
-          .
+            Upload Widget</a>.
         </li>
         <li>
           <a
             class="underline text-blue-500 hover:bg-blue-200 rounded-full transition duration-300"
             href="/apiupload.html"
           >
-            API Upload
-          </a>
-          : shows an example of how to use the
+            API Upload</a>: shows an example of how to use the
           <a
             class="underline text-blue-500 hover:bg-blue-200 rounded-full transition duration-300"
             href="https://cloudinary.com/documentation/image_upload_api_reference"
           >
-            Upload API
-          </a>
-          to upload from a JavaScript context.
+            Upload API</a> to upload from a JavaScript context.
         </li>
         <li>
           <a
             class="underline text-blue-500 hover:bg-blue-200 rounded-full transition duration-300"
             href="/album.html"
           >
-            Photo Album
-          </a>
-          : shows how to display images from a Cloudinary product environment.
+            Photo Album</a>: shows how to display images from a Cloudinary product environment.
         </li>
       </ul>
     </div>`;
