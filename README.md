@@ -1,5 +1,5 @@
 # Introduction
-This project demonstrates how to use the [Cloudinary JavaScript SDK](https://cloudinary.com/documentation/javascript_image_transformations) to create a photo album app. 
+This project demonstrates how to use the [Cloudinary JavaScript SDK](https://cloudinary.com/documentation/javascript_integration) to create a photo album app. 
 
 The sample project showcases the following functionality:
 
